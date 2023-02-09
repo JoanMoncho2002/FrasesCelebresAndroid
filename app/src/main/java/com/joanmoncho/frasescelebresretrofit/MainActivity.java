@@ -3,9 +3,12 @@ package com.joanmoncho.frasescelebresretrofit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.telecom.Call;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.joanmoncho.frasescelebresretrofit.interfaces.IAPIService;
@@ -26,6 +29,11 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private IAPIService apiService;
 
+    //Nuevo
+    public static final String nombres="names";
+    TextView tvBienvenido;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         apiService = RestClient.getInstance();
         // Probando obtener las frases
         getFrases();
+
+        // Nuevo
+        /*tvBienvenido = (TextView)findViewById(R.id.tvBienvenido);
+        String email = getIntent().getStringExtra("names");
+        tvBienvenido.setText("Bienvenido " + email);
+         */
+
     }
 
     public void getFrases() {
@@ -78,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void addFrase() {
         Log.i(MainActivity.class.getSimpleName(), "Añadiendo frase ...");

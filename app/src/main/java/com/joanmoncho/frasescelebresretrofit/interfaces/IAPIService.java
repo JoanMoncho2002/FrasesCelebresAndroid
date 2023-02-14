@@ -1,6 +1,7 @@
 package com.joanmoncho.frasescelebresretrofit.interfaces;
 
 import com.joanmoncho.frasescelebresretrofit.models.Frase;
+import com.joanmoncho.frasescelebresretrofit.models.Usuario;
 
 import java.util.List;
 
@@ -15,8 +16,13 @@ public interface IAPIService {
     @GET("frase/all")
     Call<List<Frase>> getFrases();
 
+    @GET("usuario/all")
+    Call<List<Usuario>> getUsuarios();
+
     @POST("frase/add")
     Call<Boolean> addFrase(@Body Frase frase);
+    @POST("usuario/login")
+    Call<Boolean> loginUser(@Body Usuario usuario);
 
     @POST("frase/addValues")
     @FormUrlEncoded

@@ -4,13 +4,18 @@ public class Usuario {
 
     private int id;
     private String nombre;
-    private String email;
+    private String correo;
     private String password;
 
     public Usuario(int id, String nombre, String email, String password) {
         this.id = id;
         this.nombre = nombre;
-        this.email = email;
+        this.correo = email;
+        this.password = password;
+    }
+
+    public Usuario(String correo, String password) {
+        this.correo = correo;
         this.password = password;
     }
 
@@ -30,12 +35,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getPassword() {
@@ -44,5 +49,15 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

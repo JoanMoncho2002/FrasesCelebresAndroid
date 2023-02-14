@@ -1,13 +1,10 @@
 package com.joanmoncho.frasescelebresretrofit;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +19,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import javax.security.auth.callback.Callback;
-
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Nuevo
     public static final String nombres="names";
-    TextView tvBienvenido;
+    private TextView tvBienvenido;
 
     @SuppressLint("MissingInflatedId")
     @Override

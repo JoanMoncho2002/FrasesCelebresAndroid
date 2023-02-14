@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Direccion IP del servidor">
+
+    </PreferenceCategory>
+    <EditTextPreference
+        android:defaultValue="IP"
+        android:key="etp_usuario"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="IP" />
+
+    <PreferenceCategory android:title="Puerto de conexion al servidor">
+        <EditTextPreference
+            android:defaultValue="false"
+            android:key="swp_servicio"
+            android:title="Puerto" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Usuario y Contraseña">
+        <EditTextPreference
+            android:defaultValue="false"
+            android:key="cbp_cifrado"
+            android:title="Usuario Contraseña" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

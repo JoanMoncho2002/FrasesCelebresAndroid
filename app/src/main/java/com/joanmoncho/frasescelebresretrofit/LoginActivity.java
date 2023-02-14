@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         comprobacion.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                System.out.println(response.body());
                 if(Boolean.TRUE.equals(response.body())){
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     Toast.makeText(getBaseContext(), "Has iniciado sesion!!", Toast.LENGTH_SHORT).show();

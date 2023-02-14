@@ -10,29 +10,20 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="60dp"
-        android:text="LOGIN"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="64dp"
+        android:text="INICIAR SESION"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="36dp"
-        android:text="registrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
     <Button
         android:id="@+id/btLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="70dp"
         android:text="iniciar sesion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
@@ -41,7 +32,7 @@
         android:id="@+id/edtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPassword"
@@ -72,7 +63,7 @@
         android:id="@+id/edtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"

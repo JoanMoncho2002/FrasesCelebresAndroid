@@ -1,10 +1,17 @@
 package com.joanmoncho.frasescelebresretrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +30,12 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private IAPIService apiService;
-
-    //Nuevo
+    private SharedPreferences prefs;
     public static final String nombres="names";
-    private TextView tvBienvenido;
+    //private TextView tvBienvenido;
+    private Button btFraseDia;
+    private Button btAutor;
+    private Button btCategoria;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,9 +43,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
         apiService = RestClient.getInstance();
+
         // Probando obtener las frases
         getFrases();
+
+        btFraseDia = findViewById(R.id.btFraseDia);
+        btAutor = findViewById(R.id.btAutor);
+        btCategoria = findViewById(R.id.btCategoria);
 
         // Nuevo
         /*tvBienvenido = (TextView)findViewById(R.id.tvBienvenido);
@@ -44,6 +60,26 @@ public class MainActivity extends AppCompatActivity {
         tvBienvenido.setText("Bienvenido " + email);
          */
 
+        btFraseDia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btAutor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btCategoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public void getFrases() {
@@ -60,30 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(retrofit2.Call<List<Frase>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    public void addFraseValues() {
-        Log.i(MainActivity.class.getSimpleName(), "Añadiendo frase ...");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-        apiService.addFraseValues("Frase Values", "2021-02-09", 1, 1).enqueue(new retrofit2.Callback<Boolean>() {
-            @Override
-            public void onResponse(retrofit2.Call<Boolean> call, retrofit2.Response<Boolean> response) {
-                if(response.isSuccessful()) {
-                    if(response.body()) {
-                        Log.i(MainActivity.class.getSimpleName(), "Frase añadida correctamente");
-                    } else {
-                        Log.i(MainActivity.class.getSimpleName(), "Error al añadir la frase");
-
-                        Log.i(MainActivity.class.getSimpleName(), response.raw().toString());
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(retrofit2.Call<Boolean> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
@@ -115,5 +127,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            startActivity(new Intent(MainActivity.this, AjustesActivity.class));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /*public void addFraseValues() {
+        Log.i(MainActivity.class.getSimpleName(), "Añadiendo frase ...");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        apiService.addFraseValues("Frase Values", "2021-02-09", 1, 1).enqueue(new retrofit2.Callback<Boolean>() {
+            @Override
+            public void onResponse(retrofit2.Call<Boolean> call, retrofit2.Response<Boolean> response) {
+                if(response.isSuccessful()) {
+                    if(response.body()) {
+                        Log.i(MainActivity.class.getSimpleName(), "Frase añadida correctamente");
+                    } else {
+                        Log.i(MainActivity.class.getSimpleName(), "Error al añadir la frase");
+
+                        Log.i(MainActivity.class.getSimpleName(), response.raw().toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(retrofit2.Call<Boolean> call, Throwable t) {
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }   */
 
 }

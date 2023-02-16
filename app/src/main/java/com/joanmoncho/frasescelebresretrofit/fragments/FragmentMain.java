@@ -3,6 +3,7 @@ package com.joanmoncho.frasescelebresretrofit.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,36 +13,36 @@ import androidx.fragment.app.Fragment;
 import com.joanmoncho.frasescelebresretrofit.R;
 import com.joanmoncho.frasescelebresretrofit.models.Categoria;
 
-public class FragmentCategoria extends Fragment {
-    public interface IOnAttachListener {
-        Categoria getCategoria();
-    }
+public class FragmentMain extends Fragment {
 
-    private TextView tvNCategoria;
-    private Categoria categoria;
+    private Button btFraseDia;
+    private Button btAutor;
+    private Button btCategoria;
 
-    public FragmentCategoria() {
-        super(R.layout.fragment_categoria);
+    public FragmentMain() {
+        super(R.layout.fragment_principal);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvNCategoria = view.findViewById(R.id.tvFrase);
-        if(categoria != null)
-            showDetail(categoria);
+        btFraseDia = view.findViewById(R.id.btFraseDia);
+        btAutor = view.findViewById(R.id.btAutor);
+        btCategoria = view.findViewById(R.id.btCategoria);
+        //if(categoria != null)
+           // showDetail(categoria);
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        IOnAttachListener attachListener = (IOnAttachListener) context;
-        categoria = attachListener.getCategoria();
+        //FragmentCategoria.IOnAttachListener attachListener = (FragmentCategoria.IOnAttachListener) context;
+        //categoria = attachListener.getCategoria();
     }
 
     public void showDetail(Categoria categoria) {
-        this.categoria = categoria;
-        tvNCategoria.setText(categoria.getNombre());
+        //this.categoria = categoria;
+        //tvNCategoria.setText(categoria.getNombre());
     }
 
 }

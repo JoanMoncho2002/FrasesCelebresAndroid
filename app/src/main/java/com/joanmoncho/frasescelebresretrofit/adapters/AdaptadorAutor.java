@@ -16,10 +16,8 @@ import java.util.List;
 
 public class AdaptadorAutor extends RecyclerView.Adapter<AdaptadorAutor.AutorViewHolder>{
     private final List<Autor> autorLista;
-    private final IAutorFrase listener;
 
-    public AdaptadorAutor(List<Autor> autorLista, IAutorFrase listener){
-        this.listener = listener;
+    public AdaptadorAutor(List<Autor> autorLista){
         this.autorLista = autorLista;
     }
 
@@ -29,7 +27,7 @@ public class AdaptadorAutor extends RecyclerView.Adapter<AdaptadorAutor.AutorVie
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_autor, parent, false);
 
-        return new AutorViewHolder(itemView,listener);
+        return new AutorViewHolder(itemView);
     }
 
     @Override
@@ -43,28 +41,19 @@ public class AdaptadorAutor extends RecyclerView.Adapter<AdaptadorAutor.AutorVie
         return autorLista.size();
     }
 
-    public static class AutorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class AutorViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvNombreAutor;
         private final TextView tvProfesion;
-        private final IAutorFrase listener;
-        public AutorViewHolder(@NonNull View itemView, IAutorFrase listener) {
+
+        public AutorViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNombreAutor = itemView.findViewById(R.id.tvNAutor);
             tvProfesion = itemView.findViewById(R.id.tvProfesion);
-            this.listener = listener;
-            itemView.setOnClickListener(this);
         }
 
         public void bindAutores(Autor autor){
             tvNombreAutor.setText(autor.getNombre());
             tvProfesion.setText(autor.getProfesion());
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (listener != null) {
-                listener.onAutorFraseSeleccionada(getAdapterPosition());
-            }
         }
     }
 

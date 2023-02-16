@@ -3,22 +3,23 @@ package com.joanmoncho.frasescelebresretrofit.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.joanmoncho.frasescelebresretrofit.R;
+import com.joanmoncho.frasescelebresretrofit.adapters.AdaptadorFrases;
 import com.joanmoncho.frasescelebresretrofit.models.Frase;
+
+import java.util.List;
 
 public class FragmentFrase extends Fragment {
     public interface IOnAttachListener {
-        Frase getFrase();
+        List<Frase> getFrase();
     }
 
-    private TextView tvFrase;
-    private Frase frase;
+    private List<Frase> frase;
 
     public FragmentFrase() {
         super(R.layout.fragment_frase);
@@ -27,9 +28,8 @@ public class FragmentFrase extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvFrase = view.findViewById(R.id.tvNCategoria);
-        if(frase != null)
-            showDetail(frase);
+        AdaptadorFrases adaptadorFrases = new AdaptadorFrases(frase);
+
     }
 
     @Override
@@ -38,11 +38,5 @@ public class FragmentFrase extends Fragment {
         IOnAttachListener attachListener = (IOnAttachListener) context;
         frase = attachListener.getFrase();
     }
-
-    public void showDetail(Frase frase) {
-        this.frase = frase;
-        tvFrase.setText(frase.getTexto());
-    }
-
 }
 

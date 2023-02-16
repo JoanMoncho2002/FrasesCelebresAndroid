@@ -1,5 +1,7 @@
 package com.joanmoncho.frasescelebresretrofit.interfaces;
 
+import com.joanmoncho.frasescelebresretrofit.models.Autor;
+import com.joanmoncho.frasescelebresretrofit.models.Categoria;
 import com.joanmoncho.frasescelebresretrofit.models.Frase;
 import com.joanmoncho.frasescelebresretrofit.models.Usuario;
 
@@ -15,6 +17,12 @@ import retrofit2.http.POST;
 public interface IAPIService {
     @GET("frase/all")
     Call<List<Frase>> getFrases();
+
+    @GET("categoria/all")
+    Call<List<Categoria>> getCategorias();
+
+    @GET("autor/all")
+    Call<List<Autor>> getAutores();
 
     @GET("usuario/all")
     Call<List<Usuario>> getUsuarios();

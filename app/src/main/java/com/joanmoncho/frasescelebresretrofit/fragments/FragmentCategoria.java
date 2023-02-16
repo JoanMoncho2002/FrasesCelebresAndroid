@@ -21,7 +21,7 @@ public class FragmentCategoria extends Fragment {
     private Categoria categoria;
 
     public FragmentCategoria() {
-        super(R.layout.fragment_categoria);
+        super(R.layout.fragment_listado_categoria);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class FragmentFrase extends Fragment {
     private List<Frase> frase;
 
     public FragmentFrase() {
-        super(R.layout.fragment_frase);
+        super(R.layout.fragment_listado_frase);
     }
 
     @Override

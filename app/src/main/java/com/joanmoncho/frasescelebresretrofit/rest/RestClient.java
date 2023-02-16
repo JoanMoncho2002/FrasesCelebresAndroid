@@ -8,7 +8,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestClient {
     private static IAPIService instance;
     private static final int PORT = 8090;
-    private static final String BASE_URL = "http://192.168.20.63" + ":" + PORT;
+    private static final String IPCASA = "http://192.168.0.100:";
+    private static final String IPINSTI = "http://192.168.20.63:";
+    private static final String IPGERMAN = "http://???:";
+    private static final String BASE_URL = IPINSTI + PORT;
 
     /* Lo hacemos privado para evitar que se puedan crear instancias de esta forma */
     private RestClient() {

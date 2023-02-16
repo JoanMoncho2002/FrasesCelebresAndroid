@@ -23,7 +23,7 @@ public class AdaptadorFrases  extends RecyclerView.Adapter<AdaptadorFrases.Frase
 
     @NonNull
     @Override
-    public FraseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FraseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         final View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_frase, parent, false);
         return new FraseViewHolder(itemView);
     }
